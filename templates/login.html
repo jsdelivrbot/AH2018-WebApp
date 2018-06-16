@@ -6,24 +6,60 @@
     <title>멍멍냥냥</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static',filename='styles/main.css') }}" />
-    <style>
-        .main_background {
-            background-image: url('{{ url_for('static',filename='images/main_background.png') }}');
-            background-size: 100%;
-            width: 100%;
-            height: 100vh;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/styles/login.css" />
 </head>
 <body>
     <div class="content">
         <div class="main_background">
+            <div class="MMNN_text">
+            <span>멍멍냥냥</span>
+        </div>
             <div class="login-grid">
-                <form action="/login" method="POST" class="form login">
-                    <input type="text" name="username">
-                    <input type="password" name="password">
-                    <input type="submit" value="로그인">
+                <form action="/" method="post" class="form login">
+                    <input class="email" type="email" value="Email" onfocus="this.value=''"><br>
+                    <input class="Username" type="text" value="Username" onfocus="this.value=''"><br>
+                    <input class="Password" type="password" value="Password" onfocus="this.value=''"><br>
+                    <input class="button" type="button" value="Button"><br>
+                    <div class="bar"></div>
+                    <style>
+                            .email {
+                                border: 1px solid #ffffff;
+                                border-radius: 50px;
+                                width: 300px;
+                                height: 35px;
+                                text-align: center;
+                                margin-top: 50px;
+                                margin-left: 35px;
+                                z-index: 1;
+                            }
+                            .Username {
+                                border: 1px solid #ffffff;
+                                border-radius: 50px;
+                                width: 300px;
+                                height: 35px;
+                                text-align: center;
+                                margin-left: 35px;
+                            }
+                            .Password {
+                                border: 1px solid #ffffff;
+                                border-radius: 50px;
+                                width: 300px;
+                                height: 35px;
+                                text-align: center;
+                                margin-left: 35px;
+                            }
+                            .button {
+                                border: 1px solid #2DBF64;
+                                border-radius: 50px;
+                                width: 300px;
+                                height: 35px;
+                                font-family: 'NanumSquare', sans-serif;
+                                color: white;
+                                font-size: 1rem;
+                                background-color: #2DBF64;
+                                margin-left: 35px;
+                            }
+                        </style>
                 </div>
             </div>
         </div>

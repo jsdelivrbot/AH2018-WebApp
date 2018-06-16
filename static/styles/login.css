@@ -1,0 +1,44 @@
+@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
+
+body {
+    margin: 0;
+}
+
+.login-grid {
+    z-index: 2;
+}
+.main_background {
+    background-image: url(../images/main_background.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+}
+
+.content {
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.bar {
+    border-radius: 50px;
+    background-color: white;
+    margin-top: 10%;
+    margin-left: 28%;
+    opacity: 0.7;
+    width: 40%;
+    height: 60%;
+    z-index: 0;
+}
+
+.MMNN_text {
+    color: white;
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 4rem;
+    margin-top: 150px;
+    margin-left: 70px;
+}
