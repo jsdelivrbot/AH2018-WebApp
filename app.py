@@ -1,11 +1,19 @@
 from flask import Flask, request, session, render_template, url_for, redirect
+from flask_googlemaps import GoogleMaps, Map, icons
 from email.utils import parseaddr # used for checking email formet
 from sqlalchemy.orm import sessionmaker
-import os
+import os, math
 from datetime import datetime # datetime is used for saving animal register date
 from database import *
+
 app = Flask(__name__)
+GoogleMaps(app, key='AIzaSyDunBer2z_LST4C2FNDv6DZZ39jlE82vU8')
+# google map key
 engine = create_engine('sqlite:///HOTSIX.db', echo=True)
+
+# def PointsInCircum(r,n=5):
+#     pi = 3
+#     return [(round(math.cos(2*pi/n*x)*r, 4), round(math.sin(2*pi/n*x)*r, 4)) for x in range(0,n+1)]
 
 @app.route('/') # 시작 화면
 def home():
@@ -60,6 +68,29 @@ def register_animal():
         return home()
     else:
         return render_template('register.html')
+
+@app.route('/map')
+def map():
+    base = [37.5061058, 127.0616346]
+    circle = {
+        'stroke_color': '#0000FF',
+        'stroke_opacity': .5,
+        'stroke_weight': 5,
+        'fill_color': '#FFFFFF',
+        'fill_opacity': .2,
+        'center': {
+                  'lat': base[0],
+                  'lng': base[1]
+        },
+        'radius': 17,
+    }
+    circlemap = Map(
+        identifier="map", varname="map",
+        lat=base[0], lng=base[1], zoom = 20,
+        markers=[(base[0], base[1])],
+        circles=[circle]
+    )
+    return render_template('map.html', map=circlemap)
 
 @app.errorhandler(404)
 def page_not_found(e):
